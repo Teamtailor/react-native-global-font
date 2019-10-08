@@ -4,13 +4,13 @@ import wrap from 'lodash.wrap'
 
 let _applyed = false
 export default class GlobalFont {
-    static applyGlobal(fontFamily) {
+    static applyGlobal(style) {
         if (_applyed) { return }
         Text.render = wrap(Text.render, function (func, ...args) {
             let originText = func.apply(this, args)
             return React.cloneElement(originText, {
                 style: [
-                    {fontFamily: fontFamily},
+                    style,
                     originText.props.style
                 ]
             })
@@ -19,7 +19,7 @@ export default class GlobalFont {
           let originTextInput = func.apply(this, args)
           return React.cloneElement(originTextInput, {
             style: [
-              { fontFamily: fontFamily },
+              style,
               originTextInput.props.style
             ]
           })
