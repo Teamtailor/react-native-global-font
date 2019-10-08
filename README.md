@@ -36,7 +36,7 @@ Go to your highest order component that contains your whole application.
   import GlobalFont from 'react-native-global-font'
   componentDidMount() {
      let fontName = 'YourFontName'
-     GlobalFont.applyGlobal(fontName)
+     GlobalFont.applyGlobal({ fontFamily: fontName })
   }
   ```
   
